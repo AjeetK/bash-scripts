@@ -7,12 +7,12 @@ echo "Hello, How many folders you want to create?? : "
 read number
 
 #Asking for path where folders has to be created
-echo " Okay, tell me the path where you want to create folders?? (ex- ~/Desktop)"
+echo "Okay, tell me the path where you want to create folders?? (ex- ~/Desktop)"
 read path
 #echo $path
 
 #check if the path exists, else display the message "path doesn't exist"
-if [ -d "$path" ] 
+if [ -e "$path" ] 
   then
   # Control will enter here if $path exists
   echo "path exists!!!!"
