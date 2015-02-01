@@ -9,10 +9,10 @@ read number
 #Asking for path where folders has to be created
 echo "Okay, tell me the path where you want to create folders?? (ex- ~/Desktop)"
 read path
-#echo $path
+absolute_path=echo $path
 
 #check if the path exists, else display the message "path doesn't exist"
-if [ -e "$path" ] 
+if [ -e $absolute_path ] 
   then
   # Control will enter here if $path exists
   echo "path exists!!!!"
@@ -23,38 +23,31 @@ if [ -e "$path" ]
 
 
   #Endtering the directory where folder has to be created
-  cd $path 
+  cd $path
 
   #loop to increment date and create directory 
   for (( i=0; i<=$number; i++ ))
-	do
-		#Incrementing date
-	    NEXT_DATE=$(date +%m-%d-%Y -d "$from + $i day") 
+  do
+    #Incrementing date
+      NEXT_DATE=$(date +%m-%d-%Y -d "$from + $i day") 
    
-  		#echo $NEXT_DATE
-  		#Creating the directory
-   		#mkdir $NEXT_DATE
-   		if [ -d "$NEXT_DATE" ]
-   		then
-   			echo "oops!! $NEXT_DATE Directory already exists"
+      #echo $NEXT_DATE
+      #Creating the directory
+      #mkdir $NEXT_DATE
+      if [ -d "$NEXT_DATE" ]
+      then
+        echo "oops!! $NEXT_DATE Directory already exists"
         else
-        	
-        	mkdir $NEXT_DATE
+          
+          mkdir $NEXT_DATE
             echo "$NEXT_DATE directory created"
-		fi
+    fi
 
 
-	done
-	echo "Directory creation successfull!!!"
+  done
+  echo "Directory creation successfull!!!"
 else
-	echo "oops!!! Path doesn't exists!!!"
+  echo "oops!!! Path doesn't exists!!!"
 fi
-
-
-
-
-
-
-
 
 
